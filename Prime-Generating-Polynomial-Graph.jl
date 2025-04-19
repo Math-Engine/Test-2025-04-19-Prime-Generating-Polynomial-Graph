@@ -27,7 +27,7 @@ if (param_n < 2)
   println("중간고사 5일 남음")
 end
 
-Prime_Array = []
+Prime_Array = Int[]
 
 prime = 2
 while (prime <= param_n)
