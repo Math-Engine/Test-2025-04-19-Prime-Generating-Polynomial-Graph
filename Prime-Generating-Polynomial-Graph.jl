@@ -32,6 +32,7 @@ Prime_Array = []
 prime = 2
 while (prime <= param_n)
   local Prime_Array
+  local prime
   if (is_prime(prime) == true)
     push!(Prime_Array, prime)
   end
