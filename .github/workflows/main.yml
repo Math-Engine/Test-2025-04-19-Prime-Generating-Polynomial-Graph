@@ -1,0 +1,27 @@
+name: Test-2025-04-19-Prime-Generating-Polynomial-Graph
+
+on:
+  workflow_dispatch:
+    inputs:
+      n:
+        description: '최대 x 값(소수)'
+        required: true
+        default: '1000'
+        type: string
+
+run-name: Test-2025-04-19-Prime-Generating-Polynomial-Graph ( ${{ github.event.inputs.n }} )
+
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Julia
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.9'
+      - name: Install dependencies
+        run: julia -e 'using Pkg; Pkg.add(["Plots", "Polynomials"]); Pkg.precompile()'
+      - name: Run Prime-Generating-Polynomial-Graph.jl
+        run: julia Prime-Generating-Polynomial-Graph.jl ${{ github.event.inputs.n }}
